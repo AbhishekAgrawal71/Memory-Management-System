@@ -1,1 +1,87 @@
-<p> hello wo</p>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Memory Management Simulator</title>
+  <style>
+    body {
+       font-family: Arial, sans-serif; margin: 30px; background-color:#f2f0e6; }
+    .card {
+       border: 5px solid #ccc; padding: 16px; margin-bottom: 20px; border-radius: 6px; }
+    label {
+       display:block; margin-top:8px;color:#8b004b;
+      font-size:20px; }
+    input, select { width:100%; padding:5px; margin-top:7px; columns:50; }
+    button {
+       margin-top:10px; padding:8px 14px;
+       background-color:gold;
+       color:black;
+     }
+     h1{
+      /* text-decoration:double teal underline; */
+      color:#8b004b;
+      text-align:center;
+      font-family: monospace;
+      text-transform:uppercase;
+      text-shadow:brown 3px 3px 3px;
+      line-height:50px;
+      font-size:50px;
+      font-weight:900;
+
+     }
+     h2{
+      font-family:monospace;
+      font-size :30px;
+      color:#8b004b;
+      font-weight :1000;
+      /* text-shadow:#fff 2px 2px 2px; */
+     }
+     p{
+      font-family:calibri;
+      font-size:20px;
+
+     }
+  </style>
+</head>
+<body>
+  <h1>Memory <br>Management<br> Simulator</h1>
+
+  <div class="card">
+    <h2>Allocation Algorithms :</h2>
+    <form action="{{ url_for('run_allocation') }}" method="post">
+      <label>Algorithm</label>
+      <select name="algo_alloc">
+        <option value="first">First Fit</option>
+        <option value="best">Best Fit</option>
+        <option value="worst">Worst Fit</option>
+      </select>
+      <label>Block sizes</label>
+      <input type="text" name="blocks" placeholder="100 200 300">
+      <label>Process sizes</label>
+      <input type="text" name="processes" placeholder="212 417 112">
+      <button type="submit">Run Allocation</button>
+    </form>
+  </div>
+
+  <div class="card">
+    <h2>Page Replacement Algorithms :</h2>
+    <form action="{{ url_for('run_page') }}" method="post">
+      <label>Algorithm</label>
+      <select name="algo_pr">
+        <option value="fifo">FIFO</option>
+        <option value="lru">LRU</option>
+        <option value="optimal">Optimal</option>
+      </select>
+      <label>Frames</label>
+      <input type="text" name="frames" placeholder="3">
+      <label>Reference string</label>
+      <input type="text" name="refs" placeholder="7 0 1 2 0 3 0 4">
+      <button type="submit">Run Page Replacement</button>
+    </form>
+  </div>
+  <footer>
+    <p> &copy; Developed by Abhishek , Nishant , Swastika , Kanishk , Rishika , Sajal   with ❤️ 
+    </p>
+  </footer>
+</body>
+</html>
